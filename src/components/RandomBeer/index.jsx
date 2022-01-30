@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRandomBeer } from '../../redux/reducers/randomBeerReducer';
+import {
+  getRandomBeer,
+  getRandomNonAlcoholicBeer,
+} from '../../redux/reducers/randomBeerReducer';
 
 const RandomBeer = () => {
   const dispatch = useDispatch();
   const randomBeer = useSelector((state) => state.randomBeer);
 
-  const handleRandomBeer = () => {
-    dispatch(getRandomBeer());
+  const handleRandomBeer = (hasAlcohol = true) => {
+    const randomBeerAction = hasAlcohol
+      ? getRandomBeer
+      : getRandomNonAlcoholicBeer;
+
+    dispatch(randomBeerAction());
   };
 
   useEffect(() => {
@@ -23,7 +30,9 @@ const RandomBeer = () => {
         <button type="button" onClick={handleRandomBeer}>
           Another Beer
         </button>
-        <button type="button">Random Non Alcoholic Beer</button>
+        <button type="button" onClick={() => handleRandomBeer(false)}>
+          Random Non Alcoholic Beer
+        </button>
       </section>
     )
   );
