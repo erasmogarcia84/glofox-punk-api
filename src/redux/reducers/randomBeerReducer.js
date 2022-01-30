@@ -1,6 +1,7 @@
 /* eslint-disable default-param-last */
 
 import axios from 'axios';
+import getRandomFromArray from '../../utils/helpers';
 
 const BASE_URL = 'https://api.punkapi.com/v2/beers';
 const MIN_ABV = 0.51;
@@ -30,14 +31,15 @@ export const getRandomBeer = () => async (dispatch) => {
   }
 };
 
-export const getRandomNonAlcoholicBeer = () => async (dispatch) => {
+export const getRandomNonAlcoholicBeer = () => async (dispatch, getState) => {
   try {
     const { data } = await axios(`${BASE_URL}?abv_lt=${MIN_ABV}`);
-    const randomBeer = data[0];
+    const { randomBeer } = getState();
+    const nextRandomBeer = getRandomFromArray(data, randomBeer);
 
     dispatch({
       type: actions.GET_NON_ALCOHOLIC_RANDOM_BEER,
-      randomBeer,
+      randomBeer: nextRandomBeer,
     });
   } catch (error) {
     dispatch({
