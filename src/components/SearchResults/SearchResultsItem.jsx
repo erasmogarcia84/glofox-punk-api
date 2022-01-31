@@ -10,9 +10,12 @@ const SearchResultsItem = ({ beer }) => (
         src={beer.image_url || imagePlaceholder}
         alt={beer.name}
         title={beer.name}
+        data-testid="beer-image"
       />
       <div className="card__title">
-        <span className="card__title--dark">{beer.name}</span>
+        <span className="card__title--dark" data-testid="item-beer-name">
+          {beer.name}
+        </span>
         <span className="card__title--light">{beer.tagline}</span>
       </div>
     </div>

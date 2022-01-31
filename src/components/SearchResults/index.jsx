@@ -8,7 +8,7 @@ const SearchResults = () => {
 
   return (
     beers?.length > 0 && (
-      <section id="searchResults">
+      <section id="searchResults" data-testid="search-results-section">
         <h2>Search Results</h2>
         <p>(Found {beers.length} beers)</p>
         <div className="wrapper">
