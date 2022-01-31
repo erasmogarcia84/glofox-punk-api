@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import toast, { Toaster } from 'react-hot-toast';
 import { getBeers } from '../../redux/reducers/beersReducer';
+import { filters, inputAllowedPattern } from './constants';
+import Notification from '../Notification';
 import './searchBox.scss';
-
-import filters from './constants';
 
 const SearchBox = () => {
   const dispatch = useDispatch();
@@ -14,19 +15,25 @@ const SearchBox = () => {
     setSearchFilter(filter);
   };
 
+  const handleValue = (value) =>
+    inputAllowedPattern.test(value) || value === ''
+      ? setSearchValue(value)
+      : toast.error(Notification);
+
   const handleGetBeersList = () => {
     dispatch(getBeers(searchFilter, searchValue));
   };
 
   return (
     <section id="searchBeer" data-testid="search-box-section">
+      <Toaster position="bottom-right" reverseOrder />
       <h2>Search</h2>
       <div className="searchBeer__bar">
         {searchFilter === filters.ByName ? (
           <input
             type="text"
             value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
+            onChange={(event) => handleValue(event.target.value)}
             placeholder="write something..."
             data-testid="input-text"
           />
@@ -34,7 +41,7 @@ const SearchBox = () => {
           <input
             type="date"
             value={searchValue}
-            onChange={(event) => setSearchValue(event.target.value)}
+            onChange={(event) => handleValue(event.target.value)}
             data-testid="input-date"
           />
         )}
@@ -76,4 +83,5 @@ const SearchBox = () => {
     </section>
   );
 };
+
 export default SearchBox;

@@ -64,6 +64,17 @@ describe('Given SearchBox component', () => {
         expect(searchButton).toBeEnabled();
       });
     });
+
+    describe('And invalid text is introduced', () => {
+      test('Then button is disabled', () => {
+        fireEvent.change(textInput, { target: { value: 'ipa,&43*+' } });
+
+        const searchButton = screen.getByRole('button', {
+          name: 'Search',
+        });
+        expect(searchButton).toBeDisabled();
+      });
+    });
   });
 
   describe('When By Brewed Before radio button is clicked', () => {
