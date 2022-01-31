@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import imagePlaceholder from '../../assets/images/placeholder.png';
+import './searchResults.scss';
 
 const SearchResultsItem = ({ beer }) => (
   <li className="card" key={beer.id}>
