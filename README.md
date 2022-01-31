@@ -36,8 +36,7 @@ npm i
 npm start
 ```
 
-It is also available at the following link:
-https://punk-api-glofox.web.app/
+**Live demo:** https://punk-api-glofox.web.app/
 
 ## Tests
 
@@ -52,7 +51,7 @@ npm test
 With more time I would like to add the following features to the app:
 
 - Beer Details page (with full information received from the API).. which is very interesting
-- Use the Redux Toolkit to manage state
+- Redux Toolkit and React Query
 
 ## License
 
