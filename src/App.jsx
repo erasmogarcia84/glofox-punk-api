@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './components/Footer';
 import Header from './components/Header';
 import RandomBeer from './components/RandomBeer';
 import SearchBox from './components/SearchBox';
@@ -10,6 +11,7 @@ const App = () => (
     <RandomBeer />
     <SearchBox />
     <SearchResults />
+    <Footer />
   </>
 );
 
