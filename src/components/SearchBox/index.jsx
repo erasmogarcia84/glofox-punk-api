@@ -27,6 +27,7 @@ const SearchBox = () => {
   return (
     <section id="searchBeer" data-testid="search-box-section">
       <Toaster position="bottom-right" reverseOrder />
+
       <h2>Search</h2>
       <div className="searchBeer__bar">
         {searchFilter === filters.ByName ? (
@@ -62,6 +63,7 @@ const SearchBox = () => {
               name="searchForm"
               id="searchFilter"
               value={filters.ByName}
+              checked={searchFilter === filters.ByName}
               onChange={(event) => handleFilter(event.target.value)}
             />
             By Name
@@ -74,6 +76,7 @@ const SearchBox = () => {
               name="searchForm"
               id="searchValue"
               value={filters.ByBrewedBefore}
+              checked={searchFilter === filters.ByBrewedBefore}
               onChange={(event) => handleFilter(event.target.value)}
             />
             By Brewed Before
