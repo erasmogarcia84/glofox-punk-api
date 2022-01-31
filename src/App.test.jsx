@@ -11,26 +11,6 @@ import {
 jest.mock('axios');
 
 describe('Given App component', () => {
-  describe('When is rendered', () => {
-    beforeEach(() => {
-      render(<App />, {
-        preloadedState: {
-          randomBeer: randomBeerMock,
-          beers: [],
-        },
-      });
-    });
-
-    test('Search Results section title is not in the document', () => {
-      const sections = screen.getAllByRole('heading', { level: 2 });
-      sections.forEach((section) => {
-        expect(section.textContent).not.toBe('Search Results');
-      });
-    });
-  });
-});
-
-describe('Given App component', () => {
   beforeEach(() => {
     axios.mockResolvedValue({
       data: beersMock,
@@ -47,6 +27,7 @@ describe('Given App component', () => {
     describe('And "By Name" radio button is clicked', () => {
       test('Then 11 beer items are in the document', async () => {
         const radioByName = screen.getByRole('radio', { name: 'By Name' });
+        fireEvent.change(radioByName, { target: { checked: false } });
         fireEvent.click(radioByName);
 
         const textInput = screen.getByRole('textbox');
