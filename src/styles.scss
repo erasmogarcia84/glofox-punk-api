@@ -1,5 +1,4 @@
-$dark-color: #0f172a;
-$light-color: #64748b;
+@import 'variables';
 
 @font-face {
   font-family: Inter;
@@ -51,4 +50,24 @@ section {
   padding-right: 1.5em;
   margin-left: auto;
   margin-right: auto;
+}
+
+@media only screen and (min-width: 1024px) {
+  h1 {
+    font-size: 60px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 60px;
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 48px;
+  }
+
+  section {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 1140px;
+  }
 }

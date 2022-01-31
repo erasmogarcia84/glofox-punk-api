@@ -48,3 +48,9 @@
     margin-right: 1rem;
   }
 }
+
+@media only screen and (min-width: 1024px) {
+  #searchBeer {
+    margin: 0 auto 50px;
+  }
+}
