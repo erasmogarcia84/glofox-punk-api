@@ -39,6 +39,11 @@ button {
   border-radius: 8px;
   border: none;
   cursor: pointer;
+
+  &:disabled {
+    background-color: #d4d4d4;
+    cursor: initial;
+  }
 }
 
 section {
