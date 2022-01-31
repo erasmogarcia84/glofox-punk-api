@@ -7,10 +7,10 @@ const SearchResults = () => {
   const beers = useSelector((state) => state.beers);
 
   return (
-    beers?.length > 0 && (
-      <section id="searchResults" data-testid="search-results-section">
-        <h2>Search Results</h2>
-        <p>(Found {beers.length} beers)</p>
+    <section id="searchResults" data-testid="search-results-section">
+      <h2>Search Results</h2>
+      <p>(Found {beers.length} beers)</p>
+      {beers?.length > 0 && (
         <div className="wrapper">
           <div className="mosaic">
             <ul>
@@ -20,8 +20,8 @@ const SearchResults = () => {
             </ul>
           </div>
         </div>
-      </section>
-    )
+      )}
+    </section>
   );
 };
 
