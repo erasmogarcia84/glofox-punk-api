@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import imagePlaceholder from '../../assets/images/placeholder.png';
+import SearchResultsItem from './SearchResultsItem';
 
 const SearchResults = () => {
   const beers = useSelector((state) => state.beers);
@@ -12,20 +12,7 @@ const SearchResults = () => {
         <p>(Found {beers.length} beers)</p>
         <ul>
           {beers?.map((beer) => (
-            <li className="card" key={beer.id}>
-              <div className="card__image">
-                <img
-                  src={beer.image_url || imagePlaceholder}
-                  alt={beer.name}
-                  title={beer.name}
-                />
-                <div className="card__title">
-                  <span className="card__title--dark">{beer.name}</span>
-                  <span className="card__title--light">{beer.tagline}</span>
-                </div>
-              </div>
-              <p>{beer.description}</p>
-            </li>
+            <SearchResultsItem beer={beer} key={beer.id} />
           ))}
         </ul>
       </section>
