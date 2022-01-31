@@ -3,8 +3,8 @@
 import axios from 'axios';
 import getRandomFromArray from '../../utils/helpers';
 
-const BASE_URL = 'https://api.punkapi.com/v2/beers';
-const MIN_ABV = 0.51;
+const BASE_URL = process.env.REACT_APP_BASE_URL;
+const MIN_ABV = process.env.REACT_APP_MIN_ABV;
 
 export const actions = {
   GET_RANDOM_BEER: 'randomBeer/GET_RANDOM_BEER',
