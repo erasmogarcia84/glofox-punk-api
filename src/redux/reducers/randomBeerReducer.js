@@ -1,7 +1,7 @@
 /* eslint-disable default-param-last */
 
 import axios from 'axios';
-import getRandomFromArray from '../../utils/helpers';
+import { getRandomFromArray } from '../../utils/helpers';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 const MIN_ABV = process.env.REACT_APP_MIN_ABV;

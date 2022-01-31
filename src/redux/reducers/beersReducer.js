@@ -1,5 +1,7 @@
 /* eslint-disable default-param-last */
 import axios from 'axios';
+import { filters } from '../../components/SearchBox/constants';
+import { formatDate } from '../../utils/helpers';
 
 const BASE_URL = process.env.REACT_APP_BASE_URL;
 
@@ -10,7 +12,9 @@ export const actions = {
 
 export const getBeers = (filter, value) => async (dispatch) => {
   try {
-    const { data } = await axios(`${BASE_URL}?${filter}=${value}`);
+    const updatedValue =
+      filter === filters.ByBrewedBefore ? formatDate(value) : value;
+    const { data } = await axios(`${BASE_URL}?${filter}=${updatedValue}`);
 
     dispatch({
       type: actions.GET_BEERS,
