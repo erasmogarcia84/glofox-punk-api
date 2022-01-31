@@ -1,6 +1,7 @@
 import React from 'react';
 import logoGithub from '../../assets/images/logo-github.svg';
 import logoLinkedin from '../../assets/images/logo-linkedin.svg';
+import './footer.scss';
 
 const Footer = () => (
   <footer>
