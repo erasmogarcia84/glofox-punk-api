@@ -19,7 +19,7 @@ const SearchBox = () => {
   };
 
   return (
-    <section id="searchBeer">
+    <section id="searchBeer" data-testid="search-box-section">
       <h2>Search</h2>
       <div className="searchBeer__bar">
         {searchFilter === filters.ByName ? (
@@ -28,12 +28,14 @@ const SearchBox = () => {
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
             placeholder="write something..."
+            data-testid="input-text"
           />
         ) : (
           <input
             type="date"
             value={searchValue}
             onChange={(event) => setSearchValue(event.target.value)}
+            data-testid="input-date"
           />
         )}
 
