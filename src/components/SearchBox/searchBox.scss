@@ -1,9 +1,11 @@
+@import '../../variables';
+
 #searchBeer {
   display: flex;
   text-align: center;
   flex-direction: column;
   justify-content: center;
-  margin: 0 auto 100px;
+  margin: 0 auto 200px;
 
   input[type='text'],
   input[type='date'] {
@@ -19,7 +21,11 @@
 
   input[type='radio'],
   label {
+    accent-color: $dark-color;
     cursor: pointer;
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
   }
 
   button {
@@ -41,8 +47,12 @@
 
 .searchBeer__options {
   display: flex;
-  justify-content: space-evenly;
-  margin-top: 1rem;
+  justify-content: space-between;
+  margin: 1rem auto;
+
+  div {
+    margin: 1rem;
+  }
 
   input {
     margin-right: 1rem;
@@ -51,6 +61,15 @@
 
 @media only screen and (min-width: 1024px) {
   #searchBeer {
-    margin: 0 auto 50px;
+    margin: 0 auto 200px;
+  }
+
+  .searchBeer__options {
+    max-width: 500px;
+
+    div {
+      margin-left: 3rem;
+      margin-right: 3rem;
+    }
   }
 }
